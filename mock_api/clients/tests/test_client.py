@@ -61,8 +61,22 @@ class ClientsApiCrud(APITestCase):
     def test_api_retrieve(self):
         """Test API client Retrieve."""
         url = f"/clients/{self.c.id}/"
-
         request = self.client.get(url)
-
         self.assertEqual(request.status_code, status.HTTP_200_OK)
 
+    def test_api_creation(self):
+        """Test API Client Creation."""
+        url = f"/clients/"
+        request = self.client.post(
+            url,
+            {
+                "first_name": "John",
+                "last_name": "Doe",
+                "email": "john.doe1@example.com",
+                "city": "NY",
+                "ip_address": "8.8.8.8",
+                "driving_licence": "123456789123456",
+            }
+        )
+
+        self.assertEqual(request.status_code, status.HTTP_201_CREATED)
