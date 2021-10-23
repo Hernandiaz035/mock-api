@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=mock_api
+POSTGRES_USER=UsJDBzBhhyPJMimXAvUwauyPInpBPwrI
+POSTGRES_PASSWORD=AxZXJnx51AHdVEPqa6nudNTbIkZMHSOZvreX6tBxOIKq9Mz3S5QzZWG8KrS4vlbE
