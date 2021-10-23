@@ -16,3 +16,14 @@ class ClientModelSerializer(serializers.ModelSerializer):
         model = Client
 
         fields = '__all__'
+
+
+class ClientSummarySerializer(serializers.ModelSerializer):
+    """Client Summary Serializer.
+
+    Return a Summarised version of the client."""
+
+    class Meta:
+        """Meta Class."""
+        model = Client
+        fields = ("id", "email",)
