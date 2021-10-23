@@ -1,7 +1,7 @@
 mock-api
 ========
 
-Provide an API to service mock data, create new entries and list/detail existing ones.
+Provide an API to service mock data, create new entries and list/detail existing ones. Since the login credentials won't be used, the Deleting faculty won't be provided.
 
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter
      :target: https://github.com/cookiecutter/cookiecutter-django/
@@ -12,43 +12,63 @@ Provide an API to service mock data, create new entries and list/detail existing
 
 :License: MIT
 
-Settings
+Design Decitions
 --------
+The intention of this project is to quickly provide an API to show about 15.000 entries,
+for this reason was implemented on top of a cookiecutter template, this way I can get a project
+base I could work in.
 
-Moved to settings_.
+The app was built entirely in docker in order to be able to provide compatibility and modularity.
 
-.. _settings: http://cookiecutter-django.readthedocs.io/en/latest/settings.html
+The Data was obtained randomly from https://mockaroo.com/ , it is meant to be a list of clients,
+where could be listed showing only its ID in the Database and the email. Although some people advise
+not to provide DB ID to the user becuase could give information to be attacked, this is an example and
+we're not using credentials either.
+
+
 
 Basic Commands
 --------------
 
-Setting Up Your Users
-^^^^^^^^^^^^^^^^^^^^^
+To run the app it is only necessary to have Docker installed and run the following commands::
 
-* To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+    $ docker-compose build
+    $ docker-compose up
 
-* To create an **superuser account**, use this command::
+In order to make easier the test of the API, a 15K entries is provided, run the following commands
+to load the DB with it::
+    $ docker-compose run --rm django python manage.py loaddata FAKE_DATA.json.gz
 
-    $ python manage.py createsuperuser
+At this stage you would be able to access on your browser to localhost:8000/clients/ and see the
+existing set of fake clients. This is possible because Django_rest_framework offers a browsable API.
 
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
+Feel free to use Postman or any other similar tool.
 
-Type checks
-^^^^^^^^^^^
+List clients: GET request on localhost:8000/clients/
 
-Running type checks with mypy:
+Retrieve a client: GET request on localhost:8000/clients/<Client_id>/
 
-::
+Create a client: POST request on localhost:8000/clients/ providing a json with the necessary data:
 
-  $ mypy mock_api
+{
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "driving_licence": "",
+    "ip_address": "",
+    "city": ""
+}
 
-Test coverage
-^^^^^^^^^^^^^
+Testing
+--------------
 
-To run the tests, check your test coverage, and generate an HTML coverage report::
+You can use Django to run the tests::
+    $ docker-compose run --rm django pytest
 
-    $ coverage run -m pytest
-    $ coverage html
+To run the tests, check your test coverage, and generate an HTML coverage report.::
+
+    $ docker-compose run --rm django coverage run -m pytest
+    $ docker-compose run --rm django coverage html
     $ open htmlcov/index.html
 
 Running tests with py.test
@@ -58,21 +78,3 @@ Running tests with py.test
 
   $ pytest
 
-Live reloading and Sass CSS compilation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Moved to `Live reloading and SASS compilation`_.
-
-.. _`Live reloading and SASS compilation`: http://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html
-
-Deployment
-----------
-
-The following details how to deploy this application.
-
-Docker
-^^^^^^
-
-See detailed `cookiecutter-django Docker documentation`_.
-
-.. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
