@@ -43,6 +43,8 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 DATABASES = {"default": env.db("DATABASE_URL")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+
 # URLS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
