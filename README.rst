@@ -20,7 +20,7 @@ base I could work in.
 
 The app was built entirely in docker in order to be able to provide compatibility and modularity.
 
-The Data was obtained randomly from https://mockaroo.com/ , it is meant to be a list of clients,
+The Data was obtained randomly from ` mockaroo <https://mockaroo.com/>`_ , it is meant to be a list of clients,
 where could be listed showing only its ID in the Database and the email. Although some people advise
 not to provide DB ID to the user becuase could give information to be attacked, this is an example and
 we're not using credentials either.
@@ -44,12 +44,12 @@ existing set of fake clients. This is possible because Django_rest_framework off
 
 Feel free to use Postman or any other similar tool.
 
-List clients: GET request on localhost:8000/clients/
+List clients: GET request on `<localhost:8000/clients/>`_
 
-Retrieve a client: GET request on localhost:8000/clients/<Client_id>/
+Retrieve a client: GET request on `<localhost:8000/clients/<Client_id>/>`_
 
-Create a client: POST request on localhost:8000/clients/ providing a json with the necessary data:
-
+Create a client: POST request on `<localhost:8000/clients/>`_ providing a json with the necessary data:
+::
 {
     "first_name": "",
     "last_name": "",
@@ -76,5 +76,5 @@ Running tests with py.test
 
 ::
 
-  $ pytest
+  $ docker-compose run --rm django pytest
 
