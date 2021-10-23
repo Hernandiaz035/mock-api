@@ -65,19 +65,11 @@ Feel free to use Postman or any other similar tool.
 Testing
 --------------
 
-You can use Django to run the tests::
+You run the tests using pytest::
     $ docker-compose run --rm django pytest
 
-To run the tests, check your test coverage, and generate an HTML coverage report.::
+To run the tests, check your test coverage and generate an HTML coverage report.::
 
     $ docker-compose run --rm django coverage run -m pytest
     $ docker-compose run --rm django coverage html
     $ open htmlcov/index.html
-
-Running tests with py.test
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-::
-
-  $ docker-compose run --rm django pytest
-
