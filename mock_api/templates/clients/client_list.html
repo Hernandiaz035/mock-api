@@ -25,7 +25,7 @@
           <p>{{ client.email }}</p>
         </td>
         <td>
-          <a href="{{ '#' }}">See more...</a>
+          <a href="{% url 'clients:clients-detail' client.id %}">See more...</a>
         </td>
       </tr>
     {% endfor %}

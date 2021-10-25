@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} {{ client.first_name }} {% endblock %}
+
+{% block content %}
+  <table>
+      <tr>
+        <td>
+          <p>Client ID</p>
+        </td>
+        <td>
+          <p>{{ client.id }}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>First Name</p>
+        </td>
+        <td>
+          <p>{{ client.first_name }}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Last Name</p>
+        </td>
+        <td>
+          <p>{{ client.last_name }}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Email</p>
+        </td>
+        <td>
+          <p>{{ client.email }}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Driving Licence</p>
+        </td>
+        <td>
+          <p>{{ client.driving_licence }}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>City</p>
+        </td>
+        <td>
+          <p>{{ client.city }}</p>
+        </td>
+      </tr>
+  </table>
+{% endblock %}
