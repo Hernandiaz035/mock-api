@@ -12,9 +12,7 @@ class ClientModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         """Meta Class."""
-
         model = Client
-
         fields = '__all__'
 
 
