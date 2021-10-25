@@ -4,7 +4,7 @@
 from rest_framework import viewsets, mixins
 
 # Serializers
-from mock_api.clients.serializers import ClientModelSerializer, ClientSummarySerializer
+from mock_api.clients.api.serializers import ClientModelSerializer, ClientSummarySerializer
 
 # Models
 from mock_api.clients.models import Client

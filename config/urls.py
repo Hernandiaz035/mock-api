@@ -17,7 +17,6 @@ urlpatterns = [
     path("users/", include("mock_api.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
-    path('clients/', include(('mock_api.clients.urls', 'clients'), namespace='clients')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # API URLS
