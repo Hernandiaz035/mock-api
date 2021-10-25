@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Clients {% endblock %}
+
+{% block content %}
+  <table>
+    <thead>
+      <td>
+       <p>ID</p>
+      </td>
+      <td>
+       <p>Email</p>
+      </td>
+      <td>
+       <p>Details</p>
+      </td>
+    </thead>
+    {% for client in client_list %}
+      <tr>
+        <td>
+          <p>{{ client.id }}</p>
+        </td>
+        <td>
+          <p>{{ client.email }}</p>
+        </td>
+        <td>
+          <a href="{{ '#' }}">See more...</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
