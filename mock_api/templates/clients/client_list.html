@@ -4,6 +4,9 @@
 {% block title %} Clients {% endblock %}
 
 {% block content %}
+  <a href="{% url 'clients:clients-create' %}" class="btn btn-outline-primary m-3" >
+    Create new client
+  </a>
   <table class="table">
     <thead>
       <th scope="col">
