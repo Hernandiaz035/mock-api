@@ -4,21 +4,21 @@
 {% block title %} Clients {% endblock %}
 
 {% block content %}
-  <table>
+  <table class="table">
     <thead>
-      <td>
+      <th scope="col">
        <p>ID</p>
-      </td>
-      <td>
+      </th>
+      <th scope="col">
        <p>Email</p>
-      </td>
-      <td>
+      </th>
+      <th scope="col">
        <p>Details</p>
-      </td>
+      </th>
     </thead>
     {% for client in client_list %}
       <tr>
-        <td>
+        <th scope="row">
           <p>{{ client.id }}</p>
         </td>
         <td>
@@ -30,4 +30,22 @@
       </tr>
     {% endfor %}
   </table>
+
+  <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a class="btn btn-outline-primary" href="?page=1">&laquo; first  </a>
+            <a class="btn btn-outline-primary" href="?page={{ page_obj.previous_page_number }}">  previous  </a>
+        {% endif %}
+
+        <span class="btn btn-outline-secondary">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a class="btn btn-outline-primary" href="?page={{ page_obj.next_page_number }}">  next  </a>
+            <a class="btn btn-outline-primary" href="?page={{ page_obj.paginator.num_pages }}">  last &raquo;</a>
+        {% endif %}
+    </span>
+  </div>
 {% endblock %}

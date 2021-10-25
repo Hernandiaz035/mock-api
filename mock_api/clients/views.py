@@ -13,7 +13,7 @@ class ClientListView(ListView):
     """Client List Class Based View."""
 
     model = Client
-    paginate_by = 100
+    paginate_by = 20
 
     template_name = "templates/clients/clients_list.html"
 

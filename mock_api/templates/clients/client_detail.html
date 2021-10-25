@@ -4,51 +4,51 @@
 {% block title %} {{ client.first_name }} {% endblock %}
 
 {% block content %}
-  <table>
+  <table class="table p-3 mx-5">
       <tr>
-        <td>
+        <th scope="row">
           <p>Client ID</p>
-        </td>
+        </th>
         <td>
           <p>{{ client.id }}</p>
         </td>
       </tr>
       <tr>
-        <td>
+        <th scope="row">
           <p>First Name</p>
-        </td>
+        </th>
         <td>
           <p>{{ client.first_name }}</p>
         </td>
       </tr>
       <tr>
-        <td>
+        <th scope="row">
           <p>Last Name</p>
-        </td>
+        </th>
         <td>
           <p>{{ client.last_name }}</p>
         </td>
       </tr>
       <tr>
-        <td>
+        <th scope="row">
           <p>Email</p>
-        </td>
+        </th>
         <td>
           <p>{{ client.email }}</p>
         </td>
       </tr>
       <tr>
-        <td>
+        <th scope="row">
           <p>Driving Licence</p>
-        </td>
+        </th>
         <td>
           <p>{{ client.driving_licence }}</p>
         </td>
       </tr>
       <tr>
-        <td>
+        <th scope="row">
           <p>City</p>
-        </td>
+        </th>
         <td>
           <p>{{ client.city }}</p>
         </td>
