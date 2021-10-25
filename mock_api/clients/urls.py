@@ -4,7 +4,9 @@
 from django.urls import path
 
 # Views
-from mock_api.clients.views import ClientListView
+from mock_api.clients.views import (
+    ClientListView,
+)
 
 
 urlpatterns = [
